@@ -26,7 +26,10 @@
         dataType: 'jsonp', 
       })
       .done(function( data ) {
-         console.log(data); 
+        console.log(data); 
+        $.each(data, function( index, obj) {
+          $('#petitions').append( "<p><a href='"+ obj.url +"'>" + obj.title + "</a></p>" );
+        }); 
       });
     });
   </script>
@@ -34,6 +37,9 @@
     <div class="row">
       <div class="col-xs-12">
         <h1>Featured Petitions</h1>
+        <div id="petitions">
+
+        </div>
       </div>
     </div> 
   </div>
