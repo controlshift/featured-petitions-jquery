@@ -22,6 +22,17 @@
   <script type="text/javascript">
     $(document).ready(function(){
       $.ajax({ 
+        url: 'http://demo.controlshiftlabs.com/api/graph/me.json', 
+        dataType: 'jsonp', 
+      })
+      .done(function( data ) {
+        console.log(data); 
+        $('#me').append( JSON.stringify(data) );
+      });
+    });
+
+    $(document).ready(function(){
+      $.ajax({ 
         url: 'http://demo.controlshiftlabs.com/featured.json', 
         dataType: 'jsonp', 
       })
@@ -38,6 +49,11 @@
       <div class="col-xs-12">
         <h1>Featured Petitions</h1>
         <div id="petitions">
+
+        </div>
+
+        <h1>Sign In Status</h1>
+        <div id="me">
 
         </div>
       </div>
