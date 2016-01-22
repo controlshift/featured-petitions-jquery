@@ -16,46 +16,46 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
+  <!-- Google Maps API for location lookup --> 
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAm5aA1UDKBL6dRD9yHPGydlZcBgzk6lsY&libraries=places"></script>
+
+  <style>
+    #lookup-results { 
+      min-height: 500px;
+    }
+  </style>
 </head>
 
 <body>
   <script type="text/javascript">
-    $(document).ready(function(){
-      $.ajax({ 
-        url: 'http://demo.controlshiftlabs.com/api/graph/me.json', 
-        dataType: 'jsonp', 
-      })
-      .done(function( data ) {
-        console.log(data); 
-        $('#me').append( JSON.stringify(data) );
-      });
-    });
 
-    $(document).ready(function(){
-      $.ajax({ 
-        url: 'http://demo.controlshiftlabs.com/featured.json', 
-        dataType: 'jsonp', 
-      })
-      .done(function( data ) {
-        console.log(data); 
-        $.each(data, function( index, obj) {
-          $('#petitions').append( "<p><a href='"+ obj.url +"'>" + obj.title + "</a></p>" );
-        }); 
-      });
-    });
-  </script>
+  </script>  
+
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
+        <script src="scripts/featured.js" type="text/javascript"></script>
         <h1>Featured Petitions</h1>
         <div id="petitions">
 
         </div>
 
+        <script src="scripts/graph.js" type="text/javascript"></script>
         <h1>Sign In Status</h1>
         <div id="me">
 
         </div>
+
+        <h1>Effort Lookup</h1>
+        <script src="scripts/lookup.js" type="text/javascript"></script>
+        <div>
+          <input type="text" class="form-control" id="effort-lookup-input">
+        </div> 
+
+        <div id="lookup-results">
+          
+        </div>  
+
       </div>
     </div> 
   </div>
