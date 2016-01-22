@@ -8,6 +8,11 @@ $(document).ready(function(){
 function getPetitions() {
   // Get the place details from the autocomplete object.
   var place = autocomplete.getPlace();
+
+
+  // It turns out we do not need all of this code for building up a location object from the
+  // Autocomplete response, but it is generally useful for this sort of app, so I'm leaving it in. 
+
   var locationComponent = {
     street_number: 'short_name',
     route: 'long_name',
@@ -31,6 +36,8 @@ function getPetitions() {
   }
   console.log(locationParams);
 
+
+  // get the targets and petitions (if they exist) for the effort near the place specified.
   $.ajax({ 
     url: 'https://demo.controlshiftlabs.com/efforts/forecast-the-facts/near.json', 
     dataType: 'jsonp', 
